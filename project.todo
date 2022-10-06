@@ -1,0 +1,20 @@
+
+Sending an Email Asynchronously
+• Please create a new Laravel app using the latest version available
+Create an endpoint that accepts:
+    - email_address
+    - message
+    - attachment
+    - attachment_filename
+Have that email be queued up to be sent asynchronously
+• Ensure the email can be sent if the queue is processed
+• Write some unit tests to cover the process
+• Create an endpoint to pull all emails successfully submitted to the endpoint
+above.
+
+Additional Notes
+• email_address and message are required fields
+• attachment should a Base64 encoded file
+• The endpoint should accept JSON
+• Please provide a description of what you built, how long different parts took, and
+any challenges you ran into along the way
