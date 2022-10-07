@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EmailController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/email', [EmailController::class, 'getEmail']);
+Route::post('/email', [EmailController::class, 'postCreateEmail']);
+
+/*
+
+POST 127.0.0.1:8080/email
+{
+    email: 'moorlagt@gmail.com',
+    message: 'Hey Bro!',
+    attached: some file
+    attached_filename: 'helloworld.text'
+}
+*/
