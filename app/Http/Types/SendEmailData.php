@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Types;
+namespace App\Http\Types;
 
 use Illuminate\Http\Request;
 use Spatie\LaravelData\Data;
 
-class CreateEmailData extends Data
+class SendEmailData extends Data
 {
     public function __construct(
         public string $email,

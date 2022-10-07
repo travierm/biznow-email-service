@@ -3,7 +3,6 @@
 namespace App\Http\Repos;
 
 use App\Models\SubmittedEmail;
-use Illuminate\Support\Collection;
 
 class EmailRepo
 {

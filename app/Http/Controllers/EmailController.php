@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\SendEmailJob;
 use App\Http\Repos\EmailRepo;
-use App\Types\CreateEmailData;
+use App\Http\Types\SendEmailData;
 use Illuminate\Support\Facades\Log;
 use App\Http\Requests\CreateEmailRequest;
-use App\Jobs\SendEmailJob;
 
 class EmailController extends Controller
 {
@@ -24,7 +24,7 @@ class EmailController extends Controller
 
     public function postCreateEmail(CreateEmailRequest $request)
     {
-        $createEmailData = CreateEmailData::fromRequest($request);
+        $createEmailData = SendEmailData::fromRequest($request);
 
         Log::info('new request to submit email', [
             'email' => $createEmailData->email

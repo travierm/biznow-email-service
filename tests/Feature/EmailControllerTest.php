@@ -26,14 +26,12 @@ class EmailControllerTest extends TestCase
         $this->swapMailDriver('array');
 
         $email = $this->faker()->email();
-
-        $response = $this->post('/email', [
+        $this->post('/email', [
             'email_address' => $email,
             'message' => 'hello world!',
             'attachment' => 'SGVsbG8sIFdvcmxkIQ==',
             'attachment_filename' => 'hello.text'
-        ]);
-        $response->assertStatus(200);
+        ])->assertStatus(200);
 
         $this->assertTrue(SubmittedEmail::where('email', $email)->exists(), 'submitted_email record exists');
 
@@ -45,8 +43,10 @@ class EmailControllerTest extends TestCase
     {
         $response = $this->get('/email')->assertStatus(200);
 
+        SubmittedEmail::factory()->times(3)->make();
+
         $this->assertEquals(
-            SubmittedEmail::all()->pluck('email'),
+            SubmittedEmail::all()->pluck('email')->toArray(),
             $response->json('emails')
         );
     }

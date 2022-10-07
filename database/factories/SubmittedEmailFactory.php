@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -9,6 +10,8 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class SubmittedEmailFactory extends Factory
 {
+    use WithFaker;
+
     /**
      * Define the model's default state.
      *
@@ -17,7 +20,7 @@ class SubmittedEmailFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'email' => $this->faker->email()
         ];
     }
 }

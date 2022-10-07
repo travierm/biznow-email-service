@@ -2,9 +2,8 @@
 
 namespace App\Jobs;
 
-use File;
 use Illuminate\Bus\Queueable;
-use App\Types\CreateEmailData;
+use App\Http\Types\SendEmailData;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Queue\SerializesModels;
@@ -24,7 +23,7 @@ class SendEmailJob implements ShouldQueue
      *
      * @return void
      */
-    public function __construct(public CreateEmailData $createEmailData)
+    public function __construct(public SendEmailData $sendEmailData)
     {
         //
     }
@@ -38,15 +37,16 @@ class SendEmailJob implements ShouldQueue
     {
         Log::info('job was dispatched', [
             'class' => __CLASS__,
-            'email' => $this->createEmailData->email
+            'email' => $this->sendEmailData->email
         ]);
 
-        Mail::raw($this->createEmailData->message, function ($message) {
-            $message->to($this->createEmailData->email)->subject('Email you requested...');
+        Mail::raw($this->sendEmailData->message, function ($message) {
+            $message->to($this->sendEmailData->email)->subject('Email you requested...');
 
-            if ($this->createEmailData->attachment) {
-                $attachmentData = base64_decode($this->createEmailData->attachment);
-                $message->attachData($attachmentData, $this->createEmailData->attachmentFilename);
+            // add attachment if we have one
+            if ($this->sendEmailData->attachment) {
+                $attachmentData = base64_decode($this->sendEmailData->attachment);
+                $message->attachData($attachmentData, $this->sendEmailData->attachmentFilename);
             }
         });
 
