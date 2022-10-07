@@ -1,9 +1,9 @@
 ### What did you build?
 The ask itself seemed pretty easy. I decided to focus on two things not mentioned to show the type of Laravel code I've been writing lately.
 
-Those two things are using Logging heavily and using Data classes. 
+Those two things are using logging heavily and using data classes. 
 
-Logging is obviously a great add for debugging bugs and is often left out. Data classes (spate/laravel-data) are nice because it allows better typing throughout my code. 
+Logging is a great add for debugging and is often left out. Data classes (spate/laravel-data) are nice because it allows better typing throughout my code. 
 
 You'll also notice I use PHP's type system wherever I could. 
 ### How long did it take?
