@@ -9,12 +9,12 @@ The ask itself seemed pretty easy. I decided to focus on two things not mentione
 
 Those two things are using logging heavily and using data classes. 
 
-Logging is a great add for debugging and is often left out. Data classes (spate/laravel-data) are nice because it allows better typing throughout my code. 
+Logging is a great add for debugging and is often left out. Data classes (spatie/laravel-data) are nice because it allows better typing throughout my code. 
 
 You'll also notice I use PHP's type system wherever I could. 
 ## How long did it take?
 
-I spent 6 hours on this project. At the start of the project I used it as a learning tool for a friend that wants to learn programming. I also spent some time digging into testing email data and using spatie/laravel-data
+I spent 6 hours on this project. At the start of the project I used it as a learning tool for a friend that wants to learn programming. I also spent some time digging into testing email data and using spatie/laravel-data.
 
 One big thing left out was testing the contents of the email. I was having trouble accessing the message data with the method I used to fetch the sent emails. 
 
@@ -24,7 +24,7 @@ The attachment handling and testing took some time. It wasn't clear if I was sup
 
 If I had more context and time I would implement better file type and size validation.
 
- Do your test work?
+## Do your test work?
 
 Yes! And I got the CI working so you can take a look for yourself:
 https://github.com/travierm/biznow-email-service/actions
