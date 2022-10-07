@@ -1,4 +1,5 @@
 ## Notable Files
+- [EmailRepo](app/Http/Repos/EmailRepo.php)
 - [EmailController](app/Http/Controllers/EmailController.php)
 - [EmailControllerTest](tests/Feature/EmailControllerTest.php)
 - [WithEmailTesting](tests/TestTraits/WithEmailTesting.php)
@@ -32,4 +33,4 @@ https://github.com/travierm/biznow-email-service/actions
 
 ## Would you release this to prod?
 
-No! Auth is not implemented and the file validation needs to be improved. Throttling might need to be added = to prevent someone from spamming the system.
+No! Auth is not implemented and the file validation needs to be improved. Throttling should be added to prevent someone from spamming the system.
